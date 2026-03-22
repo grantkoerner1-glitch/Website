@@ -127,9 +127,8 @@
 <body>
 
 <nav>
-  <a href="../index.html" class="nav-back">Main Site</a>
-  <a href="../index.html" class="nav-logo">Around <span>the</span> World</a>
-
+  <a href="index.html" class="nav-back">Main Site</a>
+  <a href="index.html" class="nav-logo">Around <span>the</span> World</a>
 </nav>
 
 <div class="hero">
@@ -426,20 +425,20 @@
     <h3>Order From Anywhere</h3>
     <p>We ship groceries by UPS to all 50 states. Email us to place your order and we'll pack and ship it right to your door.</p>
   </div>
-  <a href="/cdn-cgi/l/email-protection#1071627f657e74647875677f627c747d71627b756450777d71797c3e737f7d" class="ship-btn">Email to Order</a>
+  <a href="mailto:info@aroundtheworldnc.com" class="ship-btn">Email to Order</a>
 </div>
 
 <footer>
   <div class="footer-logo">Around <span>the</span> World Market</div>
   <div>Durham · Raleigh · Charlotte, NC</div>
   <div>
-    <a href="../index.html">← Main Site</a> &nbsp;·&nbsp;
+    <a href="index.html">← Main Site</a> &nbsp;·&nbsp;
     <a href="https://www.aroundtheworldnc.com/apps/webstore/" target="_blank">Full Online Store</a> &nbsp;·&nbsp;
-    <a href="/cdn-cgi/l/email-protection#f7968598829993839f928098859b939a96859c9283b7909a969e9bd994989a">Contact</a>
+    <a href="mailto:info@aroundtheworldnc.com">Contact</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   let activeTab = 'all';
 
   function setTab(tab, el) {
@@ -488,4 +487,10 @@
 
   function resetAll() {
     activeTab = 'all';
-    doc
+    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', i===0));
+    applyFilters('');
+  }
+</script>
+</body>
+</html>
