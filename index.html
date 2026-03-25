@@ -162,11 +162,19 @@
     background: linear-gradient(135deg, var(--saffron) 0%, #9e3a1a 100%);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 12px 0; overflow: hidden; display: flex;
+    padding: 12px 0;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
   }
   .marquee-track {
-    display: flex; gap: 64px;
-    animation: marquee 30s linear infinite; white-space: nowrap;
+    display: flex;
+    gap: 64px;
+    animation: marquee 30s linear infinite;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: max-content;
   }
   .marquee-item {
     font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
