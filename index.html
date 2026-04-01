@@ -909,7 +909,7 @@
     <div class="section-tag">Shop From Home</div>
     <h2 class="section-title">We Ship<br>Anywhere in the US</h2>
     <p class="section-desc">Can't make it to one of our stores? We ship groceries via UPS to anywhere in the country. Email us to place your order and we'll take care of the rest.</p>
-    <a href="/cdn-cgi/l/email-protection#6f060109002f0e1d001a010b1b070a18001d030b010c410c0002" class="shipping-cta">Email to Order</a>
+    <a href="mailto:aroundtheworldmarket@gmail.com" class="shipping-cta">Email to Order</a>
   </div>
   <div class="shipping-visual">
     <ul class="shipping-list">
@@ -926,7 +926,8 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    <div class="fund <span>the</span> World Market</div>
+    <div>
+      <div class="footer-logo">Around <span>the</span> World Market</div>
       <p class="footer-tagline">The largest Indian grocery store in the tri-state area, with something for every culture, every kitchen, every palate.</p>
     </div>
     <div class="footer-col">
@@ -951,7 +952,7 @@
     <div class="footer-col">
       <h5>Contact</h5>
       <ul>
-        <li><a href="mailto:info@aroundtheworldnc.com">Email Us</a></li>
+        <li><a href="mailto:aroundtheworldmarket@gmail.com">Email Us</a></li>
         <li><a href="#locations">Visit a Location</a></li>
         <li><a href="#reviews">Leave a Review</a></li>
         <li><a href="#gallery">Photo Gallery</a></li>
@@ -974,11 +975,14 @@
   // Fade-in on scroll
   const faders = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e =>       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.08 });
-  faders.forEach(f => observer.observe(f));
+  }, { threshold: 0.12 });
+  faders.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
-> 
