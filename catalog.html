@@ -3,1166 +3,548 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Around The World Market — North Carolina's Largest Indian Grocery</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Shop by Category — Around The World Market</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --saffron: #D4722A;
-    --turmeric: #E8A830;
-    --deep-red: #7A1A1A;
-    --cream: #FDF7EE;
-    --ivory: #F8F2E3;
-    --charcoal: #161412;
-    --warm-gray: #6B5F55;
-    --border: #DDD0BA;
-    --gold-light: #F2C96E;
+    --saffron: #C8621A;
+    --saffron-light: #E8852A;
+    --turmeric: #B05A10;
+    --cream: #FEFAF4;
+    --ivory: #F8F3EA;
+    --parchment: #F0E8D6;
+    --warm-mid: #E5D8C0;
+    --charcoal: #2E2318;
+    --warm-gray: #6A5C4E;
+    --light-text: #9A8A78;
+    --border: #DDD0B8;
+    --border-light: #EDE5D2;
+    --card-bg: #FEFCF8;
+    --card-hover: #F8F2E6;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 48px;
-    background: rgba(253,247,238,0.95);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    transition: box-shadow 0.3s;
-  }
-  nav.scrolled { box-shadow: 0 4px 32px rgba(212,114,42,0.10); }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem; font-weight: 700; letter-spacing: 0.01em;
-    color: var(--charcoal); text-decoration: none;
-  }
-  .nav-logo span { color: var(--saffron); font-style: italic; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600; color: var(--warm-gray); text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--saffron); }
-  .nav-cta {
-    background: var(--saffron); color: #fff;
-    padding: 9px 22px; border-radius: 2px;
-    font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600; text-decoration: none;
-    transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 12px rgba(212,114,42,0.3);
-  }
-  .nav-cta:hover { background: var(--deep-red); box-shadow: 0 4px 20px rgba(122,26,26,0.3); }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 80px 64px 80px 80px;
+  body {
+    font-family: 'Inter', sans-serif;
     background: var(--cream);
-    position: relative; overflow: hidden;
-    background-image: radial-gradient(circle at 80% 20%, rgba(212,114,42,0.06) 0%, transparent 60%),
-                      radial-gradient(circle at 10% 80%, rgba(232,168,48,0.05) 0%, transparent 50%);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  .hero-left::before {
-    content: '';
-    position: absolute; top: -80px; right: -80px;
-    width: 420px; height: 420px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(212,114,42,0.08) 0%, transparent 70%);
-    pointer-events: none;
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 48px;
+    background: rgba(254,250,244,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
   }
-  .hero-left::after {
-    content: '✦ ✦ ✦';
-    position: absolute; bottom: 40px; right: 64px;
-    font-size: 0.7rem; color: var(--border); letter-spacing: 8px;
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--saffron); font-weight: 600; margin-bottom: 28px;
-    background: rgba(212,114,42,0.08); padding: 7px 14px 7px 10px;
-    border-left: 3px solid var(--saffron);
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5vw, 5rem); line-height: 1.08;
-    font-weight: 700; color: var(--charcoal); margin-bottom: 28px;
-  }
+  .nav-logo { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 600; color: var(--charcoal); text-decoration: none; letter-spacing: 0.01em; }
+  .nav-logo span { color: var(--saffron); }
+  .nav-back { font-size: 0.8rem; font-weight: 500; color: var(--warm-gray); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+  .nav-back::before { content: '←'; }
+  .nav-back:hover { color: var(--saffron); }
+  .nav-cta { background: var(--saffron); color: #fff; padding: 8px 20px; border-radius: 6px; font-size: 0.8rem; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--turmeric); }
+
+  /* HERO */
+  .hero { background: var(--parchment); border-bottom: 2px solid var(--saffron); padding: 52px 80px 44px; }
+  .hero-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--saffron); font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .hero-tag::before { content:''; width:20px; height:1px; background:var(--saffron); }
+  .hero h1 { font-family: 'Lora', serif; font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 600; color: var(--charcoal); line-height: 1.15; margin-bottom: 12px; }
   .hero h1 em { font-style: italic; color: var(--saffron); }
-  .hero-desc {
-    font-size: 1rem; line-height: 1.7;
-    color: var(--warm-gray); max-width: 460px; margin-bottom: 44px;
-  }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--saffron); color: #fff;
-    padding: 14px 36px; border-radius: 3px;
-    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-    font-weight: 600; text-decoration: none;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    display: inline-block;
-    box-shadow: 0 4px 16px rgba(212,114,42,0.25);
-    position: relative; overflow: hidden;
-  }
-  .btn-primary::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .btn-primary:hover { background: var(--deep-red); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(122,26,26,0.25); }
-  .btn-secondary {
-    border: 1.5px solid var(--charcoal); color: var(--charcoal);
-    padding: 14px 36px; border-radius: 3px;
-    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-    font-weight: 600; text-decoration: none;
-    transition: background 0.2s, color 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { background: var(--charcoal); color: #fff; transform: translateY(-2px); }
-  .hero-stats {
-    display: flex; gap: 40px; margin-top: 56px;
-    padding-top: 36px; border-top: 1px solid var(--border);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6rem; font-weight: 700; color: var(--saffron); line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--warm-gray); margin-top: 4px;
-  }
-  .hero-right { position: relative; overflow: hidden; background: var(--charcoal); }
-  .hero-img-grid { display: grid; grid-template-rows: 1fr 1fr; height: 100%; }
-  .hero-img-top, .hero-img-bottom { position: relative; overflow: hidden; }
-  .hero-img-top img, .hero-img-bottom img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 6s ease; display: block;
-  }
-  .hero-img-top:hover img, .hero-img-bottom:hover img { transform: scale(1.04); }
-  .hero-img-top::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(28,28,28,0.1), rgba(232,132,42,0.15));
-  }
-  .hero-badge {
-    position: absolute; bottom: 24px; left: 24px; z-index: 2;
-    background: rgba(22,20,18,0.82); color: #fff;
-    border-left: 3px solid var(--saffron);
-    border-radius: 2px; padding: 10px 16px;
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 500; backdrop-filter: blur(8px);
-  }
+  .hero-sub { font-size: 1rem; color: var(--warm-gray); max-width: 540px; line-height: 1.75; margin-bottom: 28px; }
+  .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-pill { background: rgba(255,255,255,0.7); border: 1px solid var(--border); padding: 5px 14px; border-radius: 100px; font-size: 0.78rem; color: var(--warm-gray); }
 
-  /* ── MARQUEE ── */
-  .marquee-wrap {
-    background: linear-gradient(135deg, var(--saffron) 0%, #9e3a1a 100%);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 12px 0;
-    overflow: hidden;
-    display: flex;
-    width: 100%;
-    max-width: 100%;
+  /* FILTER BAR */
+  .filter-bar {
+    background: var(--ivory); border-bottom: 1px solid var(--border);
+    padding: 14px 80px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    position: sticky; top: 55px; z-index: 90;
   }
-  .marquee-track {
-    display: flex;
-    gap: 64px;
-    animation: marquee 30s linear infinite;
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-width: max-content;
+  .search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 320px; }
+  .search-wrap input {
+    width: 100%; padding: 9px 14px 9px 38px;
+    border: 1.5px solid var(--border); background: #fff; border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--charcoal);
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .marquee-item {
-    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-    font-weight: 500; color: #fff; flex-shrink: 0;
-    display: flex; align-items: center; gap: 20px;
+  .search-wrap input::placeholder { color: var(--light-text); }
+  .search-wrap input:focus { border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(200,98,26,0.1); }
+  .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--light-text); font-size: 0.85rem; pointer-events: none; }
+  .filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tab {
+    padding: 6px 14px; border-radius: 20px;
+    border: 1.5px solid var(--border); font-size: 0.78rem; font-weight: 500;
+    color: var(--warm-gray); cursor: pointer; transition: all 0.16s; user-select: none;
+    background: #fff;
   }
-  .marquee-item::after { content: '✦'; font-size: 0.6rem; opacity: 0.6; }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+  .tab:hover { border-color: var(--saffron-light); color: var(--saffron); background: rgba(232,133,42,0.06); }
+  .tab.active { background: var(--saffron); color: #fff; border-color: var(--saffron); }
+  .result-count { margin-left: auto; font-size: 0.8rem; color: var(--light-text); white-space: nowrap; }
 
-  /* ── SECTION COMMON ── */
-  section { padding: 100px 80px; }
-  .section-tag {
-    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--saffron); font-weight: 500; margin-bottom: 16px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--saffron); }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 3.5vw, 3.5rem);
-    font-weight: 700; line-height: 1.15; margin-bottom: 20px;
-  }
-  .section-desc { font-size: 1rem; line-height: 1.75; color: var(--warm-gray); max-width: 520px; }
+  /* MAIN */
+  .main { padding: 48px 80px 100px; }
 
-  /* ── ABOUT ── */
-  .about {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    background: var(--ivory);
-    background-image: radial-gradient(circle at 95% 5%, rgba(212,114,42,0.05) 0%, transparent 40%);
-  }
-  .about-images { position: relative; height: 560px; }
-  .about-img-main {
-    position: absolute; top: 0; left: 0; right: 60px; bottom: 60px;
-    border-radius: 2px; overflow: hidden;
-  }
-  .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
-  .about-img-accent {
-    position: absolute; right: 0; bottom: 0; width: 52%; height: 52%;
-    border-radius: 2px; overflow: hidden;
-    border: 6px solid var(--ivory);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  }
-  .about-img-accent img { width: 100%; height: 100%; object-fit: cover; }
-  .about-content { padding-right: 20px; }
-  .about-feature {
-    display: flex; gap: 20px; margin-top: 36px;
-    padding-top: 36px; border-top: 1px solid var(--border);
-  }
-  .feature-icon {
-    width: 44px; height: 44px; background: var(--saffron);
-    border-radius: 2px; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; font-size: 1.2rem;
-  }
-  .feature-text h4 { font-size: 0.88rem; font-weight: 500; margin-bottom: 4px; }
-  .feature-text p { font-size: 0.83rem; color: var(--warm-gray); line-height: 1.6; }
+  /* SECTION */
+  .cat-section.hidden { display: none; }
+  .cat-section { margin-bottom: 56px; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--border-light); flex-wrap: wrap; gap: 8px; }
+  .section-title-wrap { display: flex; align-items: center; gap: 12px; }
+  .section-emoji { font-size: 1.5rem; line-height: 1; }
+  .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--charcoal); }
+  .section-count { font-size: 0.75rem; color: var(--light-text); background: var(--warm-mid); padding: 2px 10px; border-radius: 100px; font-weight: 500; }
+  .section-link { font-size: 0.78rem; color: var(--saffron); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .section-link:hover { color: var(--turmeric); }
 
-  /* ── CATEGORIES ── */
-  .categories { background: var(--cream); }
-  .categories-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 52px; flex-wrap: wrap; gap: 20px;
+  /* PRODUCT GRID */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 0;
   }
-  .categories-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
+  .product-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border-light);
+    border-radius: 10px;
+    padding: 18px 18px 16px;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
+    text-decoration: none; color: var(--charcoal);
+    transition: background 0.18s, border-color 0.18s, box-shadow 0.18s, transform 0.15s;
   }
-  .cat-card {
-    position: relative; overflow: hidden; cursor: pointer;
-    aspect-ratio: 3/4; background: var(--charcoal);
-  }
-  .cat-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s;
-    filter: brightness(0.75) saturate(0.9);
-  }
-  .cat-card:hover img { transform: scale(1.06); filter: brightness(0.6) saturate(1.1); }
-  .cat-card-content {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 24px 20px;
-    background: linear-gradient(transparent, rgba(22,20,18,0.9));
-    transform: translateY(8px); transition: transform 0.3s;
-  }
-  .cat-card:hover .cat-card-content { transform: translateY(0); }
-  .cat-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 4px;
-  }
-  .cat-count { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--turmeric); }
-  .cat-card.large { grid-column: span 2; aspect-ratio: auto; min-height: 340px; }
-  .cat-card.tall { grid-row: span 2; }
-
-  /* ── ALSO AVAILABLE SECTION (redesigned) ── */
-  .also-available {
-    margin-top: 48px;
-    background: var(--charcoal);
-    padding: 52px 56px;
-    position: relative;
-    overflow: hidden;
-  }
-  .also-available::before {
-    content: 'MORE';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11rem; font-weight: 600;
-    color: rgba(255,255,255,0.03);
-    position: absolute; right: -20px; top: -30px;
-    line-height: 1; pointer-events: none;
-    letter-spacing: -0.04em;
-  }
-  .also-available-header {
-    display: flex; align-items: baseline; justify-content: space-between;
-    margin-bottom: 36px; flex-wrap: wrap; gap: 12px;
-  }
-  .also-available-tag {
-    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--turmeric); font-weight: 500;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .also-available-tag::before { content: ''; width: 24px; height: 1px; background: var(--turmeric); }
-  .also-available-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem; font-weight: 700; color: #fff; margin-top: 6px;
-  }
-  .also-available-link {
-    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--turmeric); text-decoration: none; font-weight: 500;
-    transition: color 0.2s;
-    white-space: nowrap;
-  }
-  .also-available-link:hover { color: #fff; }
-  .also-chips {
-    display: flex; flex-wrap: wrap; gap: 10px;
-  }
-  .also-chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 18px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.75);
-    font-size: 0.82rem; letter-spacing: 0.04em;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .also-chip::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--saffron);
-    transform: scaleY(0); transform-origin: bottom;
-    transition: transform 0.2s ease;
-  }
-  .also-chip:hover {
-    background: rgba(212,114,42,0.15);
-    border-color: rgba(212,114,42,0.4);
-    color: #fff;
+  .product-card:hover {
+    background: var(--card-hover);
+    border-color: var(--saffron-light);
+    box-shadow: 0 4px 16px rgba(200,98,26,0.10);
     transform: translateY(-2px);
   }
-  .also-chip:hover::before { transform: scaleY(1); }
-  .chip-arrow {
-    font-size: 0.7rem;
-    color: var(--saffron);
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .also-chip:hover .chip-arrow { opacity: 1; transform: translateX(0); }
+  .product-card.sold-out { opacity: 0.55; }
+  .product-name { font-size: 0.92rem; line-height: 1.5; color: var(--charcoal); font-weight: 400; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
+  .product-price { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 600; color: var(--saffron); }
+  .sold-out-tag { font-size: 0.68rem; font-weight: 500; background: var(--warm-mid); color: var(--warm-gray); padding: 3px 8px; border-radius: 100px; }
 
-  /* ── GALLERY ── */
-  .gallery { background: var(--charcoal); padding: 100px 80px; }
-  .gallery .section-title { color: #fff; }
-  .gallery .section-tag { color: var(--turmeric); }
-  .gallery .section-tag::before { background: var(--turmeric); }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(2, 280px);
-    gap: 4px; margin-top: 52px;
+  /* EMPTY CAT */
+  .empty-cat {
+    background: var(--ivory); border: 1.5px dashed var(--border);
+    border-radius: 10px; padding: 28px 24px; margin-bottom: 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
   }
-  .g-item { overflow: hidden; }
-  .g-item img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s, filter 0.3s;
-    filter: brightness(0.85);
-  }
-  .g-item:hover img { transform: scale(1.06); filter: brightness(1); }
-  .g1 { grid-column: 1/5; grid-row: 1/3; }
-  .g2 { grid-column: 5/9; grid-row: 1/2; }
-  .g3 { grid-column: 9/13; grid-row: 1/2; }
-  .g4 { grid-column: 5/8; grid-row: 2/3; }
-  .g5 { grid-column: 8/13; grid-row: 2/3; }
+  .empty-cat p { font-size: 0.9rem; color: var(--light-text); line-height: 1.6; }
+  .empty-link { font-size: 0.78rem; color: var(--saffron); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+  .empty-link:hover { color: var(--turmeric); }
 
-  /* ── REVIEWS ── */
-  .reviews { background: var(--ivory); }
-  .reviews-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    margin-top: 52px;
+  /* EMPTY SEARCH */
+  #emptySearch { display:none; text-align:center; padding:72px 20px; color:var(--warm-gray); }
+  #emptySearch .big { font-size:2.5rem; margin-bottom:14px; }
+  #emptySearch h3 { font-family:'Lora',serif; font-size:1.5rem; margin-bottom:10px; color:var(--charcoal); }
+  #emptySearch p { font-size:0.9rem; color:var(--light-text); }
+  .reset-btn {
+    margin-top:20px; background:var(--saffron); color:#fff; border:none;
+    padding:10px 24px; border-radius:8px; font-size:0.82rem; font-weight:500;
+    cursor:pointer; font-family:'Inter',sans-serif; transition:background 0.2s;
   }
-  .review-card {
-    background: var(--cream); border: 1px solid var(--border);
-    padding: 32px 28px; border-radius: 2px;
-    border-left: 3px solid transparent;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
-  }
-  .review-card:hover {
-    border-left-color: var(--saffron);
-    box-shadow: 0 8px 40px rgba(212,114,42,0.10);
-    transform: translateY(-3px);
-  }
-  .review-stars { color: var(--saffron); font-size: 0.85rem; margin-bottom: 16px; }
-  .review-text {
-    font-family: 'Playfair Display', serif;
-    font-style: italic; font-size: 1.05rem; line-height: 1.65;
-    color: var(--charcoal); margin-bottom: 20px;
-  }
-  .review-author {
-    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-    font-weight: 500; color: var(--warm-gray);
-  }
-  .review-badge {
-    display: inline-block; background: var(--saffron);
-    color: #fff; font-size: 0.65rem; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 2px 8px; margin-bottom: 8px;
-  }
-  .rating-big {
-    display: flex; align-items: center; gap: 20px;
-    background: var(--cream); border: 1px solid var(--border);
-    padding: 32px 36px; margin-bottom: 32px;
-  }
-  .rating-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5rem; font-weight: 700; color: var(--saffron); line-height: 1;
-  }
-  .rating-info { border-left: 1px solid var(--border); padding-left: 20px; }
-  .rating-stars { color: var(--saffron); font-size: 1.1rem; margin-bottom: 4px; }
-  .rating-count { font-size: 0.82rem; color: var(--warm-gray); }
+  .reset-btn:hover { background:var(--turmeric); }
 
-  /* ── LOCATIONS ── */
-  .locations { background: var(--cream); }
-  .locations-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-    margin-top: 52px;
+  /* SHIPPING */
+  .shipping-banner {
+    background: var(--parchment); border-top: 2px solid var(--saffron);
+    padding: 48px 80px; display: flex; align-items: center;
+    justify-content: space-between; gap: 28px; flex-wrap: wrap;
   }
-  .loc-card {
-    background: var(--charcoal); color: #fff;
-    padding: 48px 40px; position: relative; overflow: hidden;
-    transition: background 0.3s;
+  .shipping-banner h3 { font-family: 'Lora', serif; font-size: 1.75rem; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; }
+  .shipping-banner p { font-size: 0.95rem; color: var(--warm-gray); max-width: 420px; line-height: 1.7; }
+  .ship-btn {
+    background: var(--saffron); color: #fff; padding: 13px 30px;
+    border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.2s;
   }
-  .loc-card:hover { background: var(--deep-red); }
-  .loc-card::before {
-    content: attr(data-city);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 6rem; font-weight: 600;
-    opacity: 0.06; position: absolute; top: -10px; right: -10px;
-    line-height: 1; color: #fff; pointer-events: none;
-  }
-  .loc-card::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--saffron), var(--turmeric));
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .loc-card:hover::after { transform: scaleX(1); }
-  .loc-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem; font-weight: 600; color: var(--saffron);
-    line-height: 1; margin-bottom: 20px;
-  }
-  .loc-city {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 700; margin-bottom: 24px;
-  }
-  .loc-detail { font-size: 0.82rem; line-height: 1.9; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
-  .loc-detail strong { color: #fff; }
-  .loc-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    margin-top: 28px;
-    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--turmeric); text-decoration: none;
-    transition: gap 0.2s;
-  }
-  .loc-link:hover { gap: 14px; }
+  .ship-btn:hover { background: var(--turmeric); }
 
-  /* ── SHIPPING ── */
-  .shipping {
-    background: var(--saffron);
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0;
-    padding: 0;
-  }
-  .shipping-text { padding: 80px; }
-  .shipping-text .section-tag { color: rgba(255,255,255,0.7); }
-  .shipping-text .section-tag::before { background: rgba(255,255,255,0.7); }
-  .shipping-text .section-title { color: #fff; }
-  .shipping-text .section-desc { color: rgba(255,255,255,0.8); max-width: 400px; }
-  .shipping-cta {
-    display: inline-block; margin-top: 36px;
-    background: #fff; color: var(--saffron);
-    padding: 14px 34px;
-    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 500; text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
-  .shipping-cta:hover { background: var(--charcoal); color: #fff; }
-  .shipping-visual {
-    background: var(--deep-red);
-    height: 100%; min-height: 400px;
-    display: flex; align-items: center; justify-content: center;
-    padding: 60px;
-  }
-  .shipping-list { list-style: none; }
-  .shipping-list li {
-    display: flex; align-items: center; gap: 16px;
-    color: rgba(255,255,255,0.85); font-size: 0.95rem;
-    padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .shipping-list li:last-child { border-bottom: none; }
-  .shipping-list li::before { content: '✦'; color: var(--gold-light); font-size: 0.7rem; flex-shrink: 0; }
-
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
-    background: var(--charcoal);
-    background-image: radial-gradient(ellipse at 20% 0%, rgba(212,114,42,0.08) 0%, transparent 50%);
-    color: rgba(255,255,255,0.7);
-    padding: 72px 80px 40px;
+    background: var(--warm-mid); border-top: 1px solid var(--border);
+    padding: 28px 80px; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 0.82rem; color: var(--warm-gray);
   }
-  .footer-top {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
-    padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 16px;
-  }
+  footer a { color: var(--warm-gray); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--saffron); }
+  .footer-logo { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; color: var(--charcoal); }
   .footer-logo span { color: var(--saffron); }
-  .footer-tagline { font-size: 0.85rem; line-height: 1.7; max-width: 260px; }
-  .footer-col h5 {
-    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-    font-weight: 500; color: #fff; margin-bottom: 20px;
-  }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 10px; }
-  .footer-col ul a {
-    font-size: 0.85rem; color: rgba(255,255,255,0.6);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .footer-col ul a:hover { color: var(--turmeric); }
-  .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 28px; font-size: 0.75rem;
-    flex-wrap: wrap; gap: 12px;
-    border-top: 1px solid rgba(232,168,48,0.2);
-  }
-  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
 
-  /* ── ANIMATIONS ── */
-  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── HAMBURGER BUTTON ── */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column; justify-content: center; align-items: center;
-    gap: 5px; width: 40px; height: 40px; cursor: pointer;
-    background: none; border: none; padding: 4px;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .nav-hamburger span {
-    display: block; width: 22px; height: 2px;
-    background: var(--charcoal); border-radius: 2px;
-    transition: transform 0.3s, opacity 0.3s;
-    transform-origin: center;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* ── MOBILE DRAWER ── */
-  .mobile-drawer {
-    display: none;
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99;
-    pointer-events: none;
-  }
-  .mobile-drawer.open { pointer-events: all; }
-  .drawer-backdrop {
-    position: absolute; inset: 0;
-    background: rgba(22,20,18,0.5);
-    opacity: 0; transition: opacity 0.3s;
-    backdrop-filter: blur(2px);
-  }
-  .mobile-drawer.open .drawer-backdrop { opacity: 1; }
-  .drawer-panel {
-    position: absolute; top: 0; right: 0; bottom: 0;
-    width: min(320px, 85vw);
-    background: var(--cream);
-    transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-    display: flex; flex-direction: column;
-    box-shadow: -8px 0 40px rgba(0,0,0,0.15);
-    overflow: hidden;
-  }
-  .mobile-drawer.open .drawer-panel { transform: translateX(0); }
-  .drawer-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 24px;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-  .drawer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem; font-weight: 700; color: var(--charcoal); text-decoration: none;
-  }
-  .drawer-logo span { color: var(--saffron); font-style: italic; }
-  .drawer-close {
-    background: none; border: none; cursor: pointer;
-    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-    color: var(--warm-gray); font-size: 1.3rem; line-height: 1;
-    border-radius: 50%; transition: background 0.2s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .drawer-close:hover { background: var(--border); }
-  .drawer-nav { list-style: none; padding: 12px 0; flex: 1; overflow-y: auto; }
-  .drawer-nav li a {
-    display: flex; align-items: center; gap: 14px;
-    padding: 16px 28px;
-    font-size: 1rem; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--charcoal); text-decoration: none;
-    border-left: 3px solid transparent;
-    transition: background 0.15s, border-color 0.15s, color 0.15s;
-  }
-  .drawer-nav li a:active,
-  .drawer-nav li a:hover { background: var(--ivory); border-left-color: var(--saffron); color: var(--saffron); }
-  .nav-icon { font-size: 1rem; width: 22px; text-align: center; }
-  .drawer-footer { padding: 20px 24px 36px; border-top: 1px solid var(--border); flex-shrink: 0; }
-  .drawer-cta {
-    display: block; width: 100%; text-align: center;
-    background: var(--saffron); color: #fff;
-    padding: 14px 24px; border-radius: 3px;
-    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600; text-decoration: none;
-    box-shadow: 0 4px 16px rgba(212,114,42,0.3);
-    transition: background 0.2s;
-  }
-  .drawer-cta:hover { background: var(--deep-red); }
-
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-    .nav-hamburger { display: flex; }
-    .mobile-drawer { display: block; }
-    section { padding: 52px 20px; }
-    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 64px; }
-    .hero-left { padding: 36px 20px 40px; }
-    .hero-left::after { display: none; }
-    .hero h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); }
-    .hero-desc { font-size: 0.93rem; margin-bottom: 32px; }
-    .hero-stats { gap: 20px; margin-top: 32px; padding-top: 24px; }
-    .stat-num { font-size: 2rem; }
-    .hero-right { height: 56vw; min-height: 220px; }
-    .hero-img-grid { grid-template-rows: 1fr; grid-template-columns: 1fr 1fr; }
-    .about { grid-template-columns: 1fr; gap: 32px; padding: 52px 20px; }
-    .about-images { height: 260px; }
-    .about-img-main { right: 40px; bottom: 40px; }
-    .about-img-accent { width: 48%; height: 48%; }
-    .categories-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-    .cat-card { aspect-ratio: 1/1; }
-    .cat-card.large { grid-column: span 2; aspect-ratio: 16/7; }
-    .cat-card.tall { grid-row: auto; aspect-ratio: 1/1; }
-    .cat-name { font-size: 1rem; }
-    .also-available { padding: 32px 20px; }
-    .also-available::before { font-size: 6rem; }
-    .also-available-title { font-size: 1.3rem; }
-    .also-chip { padding: 8px 14px; font-size: 0.78rem; }
-    .gallery { padding: 52px 20px; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 3px; }
-    .g1,.g2,.g3,.g4,.g5 { grid-column: auto; grid-row: auto; height: 160px; }
-    .g1 { grid-column: span 2; height: 220px; }
-    .reviews { padding: 52px 20px; }
-    .reviews > div { grid-template-columns: 1fr !important; gap: 32px !important; }
-    .reviews-grid { grid-template-columns: 1fr; margin-top: 28px; gap: 16px; }
-    .review-card { padding: 24px 20px; }
-    .review-text { font-size: 0.95rem; }
-    .rating-big { padding: 20px; flex-wrap: wrap; gap: 16px; }
-    .rating-num { font-size: 3.5rem; }
-    .locations-grid { grid-template-columns: 1fr; gap: 2px; }
-    .loc-card { padding: 36px 24px; }
-    .loc-number { font-size: 2.5rem; }
-    .shipping { grid-template-columns: 1fr; }
-    .shipping-text { padding: 48px 20px; }
-    .shipping-visual { min-height: 200px; padding: 32px 20px; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; padding-bottom: 36px; }
-    footer { padding: 40px 20px 24px; }
-    .footer-logo { font-size: 1.2rem; }
+  @media (max-width: 860px) {
+    nav { padding: 14px 18px; }
+    .hero { padding: 36px 18px 28px; }
+    .filter-bar { padding: 12px 18px; top: 53px; }
+    .main { padding: 24px 16px 64px; }
+    .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+    .shipping-banner { padding: 32px 18px; }
+    footer { padding: 22px 18px; }
+    .filter-tabs { gap: 5px; }
+    .tab { padding: 5px 11px; font-size: 0.74rem; }
   }
 
   @media (max-width: 480px) {
-    .hero h1 { font-size: 2.1rem; }
-    .hero-stats { flex-wrap: wrap; gap: 16px; }
-    .hero-actions { flex-direction: column; }
-    .hero-actions .btn-primary,
-    .hero-actions .btn-secondary { text-align: center; }
-    .footer-top { grid-template-columns: 1fr; }
-    .also-chips { gap: 7px; }
+    .product-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .product-card { padding: 14px 12px; }
+    .product-name { font-size: 0.84rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="index.html" class="nav-logo">Around <span>the</span> World Market</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#locations">Locations</a></li>
-  </ul>
-  <a href="catalog.html" class="nav-cta">Browse Catalog</a>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <a href="index.html" class="nav-back">Main Site</a>
+  <a href="index.html" class="nav-logo">Around <span>the</span> World</a>
 </nav>
 
-<!-- MOBILE DRAWER -->
-<div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="drawer-backdrop" id="drawerBackdrop"></div>
-  <div class="drawer-panel">
-    <div class="drawer-header">
-      <a href="index.html" class="drawer-logo">Around <span>the</span> World</a>
-      <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
-    </div>
-    <ul class="drawer-nav">
-      <li><a href="#about" class="drawer-link"><span class="nav-icon">✦</span>About</a></li>
-      <li><a href="#shop" class="drawer-link"><span class="nav-icon">🛒</span>Shop</a></li>
-      <li><a href="#gallery" class="drawer-link"><span class="nav-icon">📷</span>Gallery</a></li>
-      <li><a href="#reviews" class="drawer-link"><span class="nav-icon">★</span>Reviews</a></li>
-      <li><a href="#locations" class="drawer-link"><span class="nav-icon">📍</span>Locations</a></li>
-    </ul>
-    <div class="drawer-footer">
-      <a href="catalog.html" class="drawer-cta">Browse Catalog →</a>
-    </div>
+<div class="hero">
+  <div class="hero-tag">Product Catalog</div>
+  <h1>Shop Our <em>Full</em><br>Selection</h1>
+  <p class="hero-sub">Real products, real prices — straight from our shelves. Browse every category below and find it at any of our three NC locations.</p>
+  <div class="hero-pills">
+    <span class="hero-pill">🥫 Canned Foods</span>
+    <span class="hero-pill">🥢 Chinese Items</span>
+    <span class="hero-pill">🥤 Drinks & Juice</span>
+    <span class="hero-pill">🥜 Dry Fruits & Nuts</span>
+    <span class="hero-pill">🙏 Fasting Items</span>
+    <span class="hero-pill">🌾 Flour & Atta</span>
+    <span class="hero-pill">🥟 Frozen Appetizers</span>
+    <span class="hero-pill">🍨 Frozen Sweets</span>
+    <span class="hero-pill">🫓 Frozen Naan & Paratha</span>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-left">
-    <div class="hero-tag">North Carolina's Finest International Market</div>
-    <h1>A World of<br>Flavor, <em>Under<br>One Roof</em></h1>
-    <p class="hero-desc">The largest Indian grocery store in the tri-state area — with fresh produce, aromatic spices, global pantry staples, and the warmth of family-owned service. Three locations across NC.</p>
-    <div class="hero-actions">
-      <a href="#shop" class="btn-primary">Browse Categories</a>
-      <a href="#locations" class="btn-secondary">Find a Store</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">4.5★</div>
-        <div class="stat-label">657 Google Reviews</div>
-      </div>
-      <div>
-        <div class="stat-num">3</div>
-        <div class="stat-label">NC Locations</div>
-      </div>
-      <div>
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Product Categories</div>
-      </div>
-    </div>
+<div class="filter-bar">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search products…" oninput="handleSearch(this.value)">
   </div>
-  <div class="hero-right">
-    <div class="hero-img-grid">
-      <div class="hero-img-top">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=900&q=85" alt="Colorful Indian spices in wooden bowls" loading="lazy">
-        <div class="hero-badge">🌶 Fresh Spices Daily</div>
-      </div>
-      <div class="hero-img-bottom">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=85" alt="Fresh produce and vegetables at market" loading="lazy">
-      </div>
-    </div>
+  <div class="filter-tabs">
+    <span class="tab active" onclick="setTab('all',this)">All</span>
+    <span class="tab" onclick="setTab('canned',this)">Canned</span>
+    <span class="tab" onclick="setTab('chinese',this)">Chinese</span>
+    <span class="tab" onclick="setTab('drinks',this)">Drinks</span>
+    <span class="tab" onclick="setTab('dryfruits',this)">Dry Fruits</span>
+    <span class="tab" onclick="setTab('fasting',this)">Fasting</span>
+    <span class="tab" onclick="setTab('flour',this)">Flour</span>
+    <span class="tab" onclick="setTab('frozen',this)">Frozen</span>
   </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Indian Groceries</span>
-    <span class="marquee-item">Fresh Produce</span>
-    <span class="marquee-item">Basmati Rice</span>
-    <span class="marquee-item">Spices & Masalas</span>
-    <span class="marquee-item">British Imports</span>
-    <span class="marquee-item">African Goods</span>
-    <span class="marquee-item">Thai Ingredients</span>
-    <span class="marquee-item">Frozen Snacks</span>
-    <span class="marquee-item">Lentils & Dals</span>
-    <span class="marquee-item">Sweets & Mithai</span>
-    <span class="marquee-item">Puja Items</span>
-    <span class="marquee-item">Ships Nationwide</span>
-    <span class="marquee-item">Indian Groceries</span>
-    <span class="marquee-item">Fresh Produce</span>
-    <span class="marquee-item">Basmati Rice</span>
-    <span class="marquee-item">Spices & Masalas</span>
-    <span class="marquee-item">British Imports</span>
-    <span class="marquee-item">African Goods</span>
-    <span class="marquee-item">Thai Ingredients</span>
-    <span class="marquee-item">Frozen Snacks</span>
-    <span class="marquee-item">Lentils & Dals</span>
-    <span class="marquee-item">Sweets & Mithai</span>
-    <span class="marquee-item">Puja Items</span>
-    <span class="marquee-item">Ships Nationwide</span>
-  </div>
+  <span class="result-count" id="resultCount"></span>
 </div>
 
-<!-- ABOUT -->
-<section class="about fade-in" id="about">
-  <div class="about-images">
-    <div class="about-img-main">
-      <img src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?w=800&q=85" alt="Indian grocery store interior with colorful products" loading="lazy">
-    </div>
-    <div class="about-img-accent">
-      <img src="https://images.unsplash.com/photo-1573246123775-46f5e06b6082?w=600&q=85" alt="Fresh ginger root and turmeric" loading="lazy">
-    </div>
-  </div>
-  <div class="about-content">
-    <div class="section-tag">Our Story</div>
-    <h2 class="section-title">Family Owned,<br>Family Grown</h2>
-    <p class="section-desc">Around The World Market was built on a simple belief: everyone deserves access to the authentic flavors of home — no matter where home is. What began as the largest Indian grocery in North Carolina has grown into a true international market, welcoming shoppers from every background and culinary tradition.</p>
-    <p class="section-desc" style="margin-top:16px">Our staff treats every customer like family — you'll notice it the moment you walk in. The owner has been known to personally make sure a customer who couldn't handle the spice got some dessert before leaving.</p>
-    <div class="about-feature">
-      <div class="feature-icon">🛒</div>
-      <div class="feature-text">
-        <h4>Free Loyalty Rewards Program</h4>
-        <p>Shop and earn with our free in-store loyalty program. Because regulars deserve to be treated like family.</p>
-      </div>
-    </div>
-    <div class="about-feature" style="border-top:1px solid var(--border); padding-top:24px; margin-top:16px">
-      <div class="feature-icon">📦</div>
-      <div class="feature-text">
-        <h4>UPS Shipping Nationwide</h4>
-        <p>Can't make it to a store? We ship groceries by UPS to anywhere in the country. Email us to place an order.</p>
-      </div>
-    </div>
-    <div class="about-feature" style="border-top:1px solid var(--border); padding-top:24px; margin-top:16px">
-      <div class="feature-icon">🌍</div>
-      <div class="feature-text">
-        <h4>Truly International Selection</h4>
-        <p>Indian, British, African, Thai, Chinese and more — all under one roof. One stop, the whole world.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<main class="main">
 
-<!-- CATEGORIES -->
-<section class="categories fade-in" id="shop">
-  <div class="categories-header">
-    <div>
-      <div class="section-tag">What We Carry</div>
-      <h2 class="section-title">Shop by<br>Category</h2>
+  <!-- CANNED FOOD -->
+  <div class="cat-section" data-cat="canned">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🥫</span><span class="section-title">Canned Food</span><span class="section-count">30 items</span></div>
     </div>
-    <a href="catalog.html" class="btn-secondary">Browse Full Catalog →</a>
-  </div>
-
-  <div class="categories-grid">
-    <div class="cat-card tall">
-      <!-- Indian spices in bowls – saffron, turmeric, chili powder -->
-      <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80" alt="Spices and Masalas" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Spices & Masalas</div>
-        <div class="cat-count">Whole, ground & blended</div>
-      </div>
-    </div>
-    <div class="cat-card">
-      <!-- Fresh vegetables at a market – peppers, tomatoes, produce -->
-      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=500&q=80" alt="Fresh produce" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Fresh Produce</div>
-        <div class="cat-count">Seasonal & specialty</div>
-      </div>
-    </div>
-    <div class="cat-card">
-      <!-- Dried lentils and grains in wooden spoons -->
-      <img src="https://images.unsplash.com/photo-1612257416648-af6e8c24b3ef?w=500&q=80" alt="Rice lentils and grains" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Rice, Lentils & Grains</div>
-        <div class="cat-count">Basmati, dal & more</div>
-      </div>
-    </div>
-    <div class="cat-card large">
-      <!-- Indian sweets / mithai – gulab jamun, ladoo -->
-      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&q=80" alt="Indian sweets and snacks" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Snacks, Sweets & Mithai</div>
-        <div class="cat-count">Namkeen, biscuits, Indian desserts</div>
-      </div>
-    </div>
-    <div class="cat-card">
-      <!-- Frozen food aisle / frozen packaged goods -->
-      <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=500&q=80" alt="Frozen foods" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Frozen Foods</div>
-        <div class="cat-count">Naan, paratha, ready-to-eat</div>
-      </div>
-    </div>
-    <div class="cat-card">
-      <!-- Masala chai / Indian tea cups with spices -->
-      <img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=500&q=80" alt="Drinks and teas" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Drinks & Teas</div>
-        <div class="cat-count">Masala chai, juices, mixes</div>
-      </div>
-    </div>
-    <div class="cat-card">
-      <!-- Glass jar of ghee / clarified butter golden yellow -->
-      <img src="https://images.unsplash.com/photo-1593560706329-3e327cd97af9?w=500&q=80" alt="Ghee and oils" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Ghee & Oils</div>
-        <div class="cat-count">Pure, organic & specialty</div>
-      </div>
-    </div>
-    <div class="cat-card">
-      <!-- Mixed dry fruits – cashews almonds raisins dates -->
-      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500&q=80" alt="Dry fruits and nuts" loading="lazy">
-      <div class="cat-card-content">
-        <div class="cat-name">Dry Fruits & Nuts</div>
-        <div class="cat-count">Cashews, almonds & more</div>
-      </div>
+    <div class="product-grid">
+      <a class="product-card" href="#"><span class="product-name">Borden Magnolia Condensed Milk Sweet 14oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Campanio Baby Corn Small Size 15oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Banana Blossom 18oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Coconut Cream 13.5oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Coconut Milk 13.5oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Green Jackfruit 20oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Lychee Can 20oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Sugar Cane 20oz</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Yellow Jackfruit 20oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Alphonso Mango Pulp 850gm</span><div class="product-footer"><span class="product-price">$3.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Coconut Cream 13.5oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Coconut Milk 13.5oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Kesar Mango Pulp 850gm</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Heinz Beans 13.7oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">La Fe Black Beans 15.5oz</span><div class="product-footer"><span class="product-price">$1.19</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">La Fe Blackeye Peas 15.5oz</span><div class="product-footer"><span class="product-price">$1.19</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">La Fe Chick Peas Can 15.5oz</span><div class="product-footer"><span class="product-price">$1.09</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">La Fe Red Kidney Beans 15.5oz</span><div class="product-footer"><span class="product-price">$1.19</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">La Fe Small Red Beans 15.5oz</span><div class="product-footer"><span class="product-price">$1.19</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Mount Tai Coconut Milk 15oz</span><div class="product-footer"><span class="product-price">$1.69</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Nestle Carnation Evaporated Milk 12oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Nestle Media Table Crema</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">O Mascot Water Chestnuts</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Ratna Alphonso Mango Pulp</span><div class="product-footer"><span class="product-price">$4.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Kesar Mango Pulp 850gm</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Lotus Root Can 14oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Patra Can 14oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Sarson Ka Saag Can 14oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Suran Can 14oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Undhiu Can 14oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
     </div>
   </div>
 
-  <!-- ALSO AVAILABLE — redesigned dark chip section -->
-  <div class="also-available">
-    <div class="also-available-header">
-      <div>
-        <div class="also-available-tag">Also Available</div>
-        <div class="also-available-title">40+ Categories In‑Store & Online</div>
-      </div>
-      <a href="catalog.html" class="also-available-link">Browse Full Catalog →</a>
+  <!-- CHINESE ITEMS -->
+  <div class="cat-section" data-cat="chinese">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🥢</span><span class="section-title">Chinese Items</span><span class="section-count">39 items</span></div>
     </div>
-    <div class="also-chips">
-      <a href="catalog.html" class="also-chip">🍬 Candy &amp; Chocolates<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🥫 Canned Foods<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🥢 Chinese Items<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🥛 Cooler &amp; Dairy<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🙏 Fasting Items<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🌾 Flour &amp; Baking<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">💄 Health &amp; Beauty<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">⚡ Instant Mixes<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🍳 Kitchen Utensils<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🌾 Mamra &amp; Poha<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🌿 Mukhwas<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🍜 Noodles<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🌱 Organic Products<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🫓 Papad<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🫙 Pickles &amp; Chutneys<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🪔 Puja Items<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🍱 Ready To Eat<span class="chip-arrow">→</span></a>
-      <a href="catalog.html" class="also-chip">🌶 Spice Mixes &amp; Pastes<span class="chip-arrow">→</span></a>
+    <div class="product-grid">
+      <a class="product-card" href="#"><span class="product-name">Agar Agar 40gm</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Aroy-D Yellow Curry Paste 50gm</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Cafe Du Monde 15oz</span><div class="product-footer"><span class="product-price">$7.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Campanio Baby Corn Small Size 15oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Banana Blossom 18oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Coconut Cream 13.5oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Coconut Juice Can</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Coconut Milk 13.5oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Green Jackfruit 20oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Lychee Can 20oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Sugar Cane 20oz</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Yellow Jackfruit 20oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">China Green Tea Special Gunpowder 16oz</span><div class="product-footer"><span class="product-price">$4.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chings Hakka Egg Noodles 150gm</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chings Hakka Veg Noodles 150gm</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chings Hot & Sour Veg Soup 30gm</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Chings Manchow Soup 30gm</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Coconut Cream 13.5oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Coconut Milk 13.5oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Dieters Nature Slim Tea Bags 12ct</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Erawan Rice Stick Medium 16oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Erawan Rice Stick Small 16oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Erawan Rice Vermicelli 16oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">GB Fortune Cookies 3.5oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Gold Key Quick Cooking Chinese Noodle 16oz</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Kikkoman Stir Fry Sauce 12oz</span><div class="product-footer"><span class="product-price">$3.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Kikkoman Teriyaki Paste & Glaze 12oz</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Kikkoman Thai Style Chili Sauce</span><div class="product-footer"><span class="product-price">$3.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">LKK Peanut Flavored Sauce 8oz</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Mae Ploy Red Curry Paste 14oz</span><div class="product-footer"><span class="product-price">$3.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Mae Ploy Sweet Chili Sauce 12oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maesri Green Curry Paste 4oz</span><div class="product-footer"><span class="product-price">$1.69</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maesri Red Curry Paste 4oz</span><div class="product-footer"><span class="product-price">$1.69</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Mount Tai Coconut Milk 15oz</span><div class="product-footer"><span class="product-price">$1.69</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">O M Lo Mein 12oz</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">O Mascot Water Chestnuts</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
     </div>
   </div>
-</section>
 
-<!-- GALLERY -->
-<section class="gallery fade-in" id="gallery">
-  <div class="section-tag">Photo Gallery</div>
-  <h2 class="section-title" style="color:#fff">Inside the Market</h2>
-  <div class="gallery-grid">
-    <div class="g-item g1">
-      <img src="assets/images/gallery-aisle.svg" alt="Indian grocery store aisle" loading="lazy">
+  <!-- DRINKS & JUICE -->
+  <div class="cat-section" data-cat="drinks">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🥤</span><span class="section-title">Drinks & Juice</span><span class="section-count">21 items</span></div>
     </div>
-    <div class="g-item g2">
-      <img src="assets/images/gallery-spices.svg" alt="Colorful spice market display" loading="lazy">
-    </div>
-    <div class="g-item g3">
-      <img src="assets/images/gallery-shelves.svg" alt="Market shelves with Indian products" loading="lazy">
-    </div>
-    <div class="g-item g4">
-      <img src="assets/images/gallery-herbs.svg" alt="Fresh herbs and vegetables" loading="lazy">
-    </div>
-    <div class="g-item g5">
-      <img src="assets/images/gallery-lighting.svg" alt="Store interior warm lighting" loading="lazy">
+    <div class="product-grid">
+      <a class="product-card" href="#"><span class="product-name">Chaokoh Coconut Juice Can</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Aampanna Juice 1lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Mango Drink 1.5lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Frooti 200ml</span><div class="product-footer"><span class="product-price">$0.50</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">La Fe Coconut Juice 11.08fl</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maaza Guava Juice 1lt</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maaza Guava Juice 330ml</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maaza Lychee Juice 1lt</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maaza Lychee Juice 330ml</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maaza Mango Juice 1lt</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Maaza Mango Juice 330ml</span><div class="product-footer"><span class="product-price">$1.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Pakola Cream Soda Can 330ml</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Real Coconut Water 330ml</span><div class="product-footer"><span class="product-price">$1.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Royalty Ginger Beer 330ml</span><div class="product-footer"><span class="product-price">$1.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Rubicon Goyava Juice 1lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Rubicon Lychee Juice 1lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Rubicon Mango Juice 1lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Rubicon Passion Fruit Juice 1lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Rubicon Pomegranate Juice 1lt</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Stoney Ginger Beer 330ml</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Vimto Can 355ml</span><div class="product-footer"><span class="product-price">$0.89</span></div></a>
     </div>
   </div>
-  <div style="text-align:center; margin-top:32px">
-    <a href="#gallery" class="btn-primary">View Full Gallery</a>
-  </div>
-</section>
 
-<!-- REVIEWS -->
-<section class="reviews fade-in" id="reviews">
-  <div style="display:grid; grid-template-columns:1fr 2fr; gap:60px; align-items:start">
-    <div>
-      <div class="section-tag">What Customers Say</div>
-      <h2 class="section-title">Loved by the<br>Community</h2>
-      <p class="section-desc">Over 657 Google reviews and counting. Customers come for the groceries — and stay for the people.</p>
-      <div class="rating-big" style="margin-top:36px">
-        <div class="rating-num">4.5</div>
-        <div class="rating-info">
-          <div class="rating-stars">★★★★½</div>
-          <div class="rating-count">Based on 657 Google reviews</div>
-          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem; color:var(--saffron); text-decoration:none; display:block; margin-top:8px">Write a Review →</a>
-        </div>
-      </div>
+  <!-- DRY FRUITS & NUTS -->
+  <div class="cat-section" data-cat="dryfruits">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🥜</span><span class="section-title">Dry Fruits & Nuts</span><span class="section-count">34 items</span></div>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"They have all Indian items available. Staff were so humble and friendly. I saw the owner offer dessert to a customer who couldn't handle the spice — just to make sure he was okay."</p>
-        <div class="review-badge">Local Guide</div>
-        <div class="review-author">Yogananda Thanniru · 248 reviews</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Best store — always has what we need! Love that it is our one stop shop for everything from fridge items to spices to dessert. Very grateful to have it in the area."</p>
-        <div class="review-badge">Local Guide</div>
-        <div class="review-author">Shezeen Ali · 94 reviews</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Extremely nice staff. Everything you need to start making curry from scratch! Fresh produce including giant chunks of fresh ginger, mild and hot chili options, and every spice you could want."</p>
-        <div class="review-badge">Local Guide</div>
-        <div class="review-author">em · 9 reviews</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Great place, yummy samosas, and nice people. Fresh produce, great selection of Indian groceries and spices. The owner is very kind and treats regular customers like family."</p>
-        <div class="review-author">Google Reviewer</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I just love this little store. There's a nice selection of affordable produce that is not easy to find elsewhere, like curry leaves. All the Indian staples — rice, beans, spices. So many kinds of snacks."</p>
-        <div class="review-author">Discover Durham</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★</div>
-        <p class="review-text">"Good options for buying Indian groceries! The staff is humble and very helpful. One of the best options for buying Indian groceries in the area. They have spices and vegetables the average American wouldn't recognize."</p>
-        <div class="review-author">DHHAVAL NAIK</div>
-      </div>
+    <div class="product-grid">
+      <a class="product-card" href="#"><span class="product-name">Aksar Green Raisin 14oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Almond Powder 10oz</span><div class="product-footer"><span class="product-price">$6.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Black Raisin 14oz</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">California Figs 9oz</span><div class="product-footer"><span class="product-price">$3.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Cashew Roasted Salted 10oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Dry Dates 7oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Spicy Cashews Black Pepper 8oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Spicy Cashews Red Pepper 8oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Spicy Peanut 8oz</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deer Figs Anjeer 14oz</span><div class="product-footer"><span class="product-price">$6.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deer Munaqqa 14oz</span><div class="product-footer"><span class="product-price">$6.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Golden Dates 10oz</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card sold-out" href="#"><span class="product-name">Golden Dates 28oz</span><div class="product-footer"><span class="product-price">$7.49</span><span class="sold-out-tag">Sold Out</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Laxmi Dry Apricot 7oz</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Meharban Date 28oz</span><div class="product-footer"><span class="product-price">$7.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Almond Slice 14oz</span><div class="product-footer"><span class="product-price">$7.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Almond 14oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Almond 28oz</span><div class="product-footer"><span class="product-price">$10.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Almond 3lb</span><div class="product-footer"><span class="product-price">$19.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Almond Natural Slice 14oz</span><div class="product-footer"><span class="product-price">$6.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Cashew Pieces 14oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Cashew Pieces 28oz</span><div class="product-footer"><span class="product-price">$11.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Cashew Whole 14oz</span><div class="product-footer"><span class="product-price">$7.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Cashew Whole 28oz</span><div class="product-footer"><span class="product-price">$13.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Figs Anjeer 7oz</span><div class="product-footer"><span class="product-price">$4.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Golden Raisin 14oz</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Golden Raisin 28oz</span><div class="product-footer"><span class="product-price">$7.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Golden Raisin 3.5lb</span><div class="product-footer"><span class="product-price">$11.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Golden Raisin 7oz</span><div class="product-footer"><span class="product-price">$2.29</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Pista Green 14oz</span><div class="product-footer"><span class="product-price">$17.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Pista Green 7oz</span><div class="product-footer"><span class="product-price">$9.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swan Alu Bukhara 7oz</span><div class="product-footer"><span class="product-price">$4.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swan Munnaka 7oz</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Walnut 10oz</span><div class="product-footer"><span class="product-price">$6.99</span></div></a>
     </div>
   </div>
-</section>
 
-<!-- LOCATIONS -->
-<section class="locations fade-in" id="locations">
-  <div class="section-tag">Find Us</div>
-  <h2 class="section-title">Three Locations<br>Across North Carolina</h2>
-  <div class="locations-grid">
-    <div class="loc-card" data-city="Durham">
-      <div class="loc-number">01</div>
-      <div class="loc-city">Durham</div>
-      <div class="loc-detail"><strong>Address</strong><br>1708 E NC Highway 54<br>Durham, NC 27713</div>
-      <div class="loc-detail" style="margin-top:16px"><strong>Hours</strong><br>Mon–Sat: 11:00 AM – 8:00 PM<br>Sunday: 11:00 AM – 6:00 PM</div>
-      <div class="loc-detail" style="margin-top:16px"><strong>Phone</strong><br>(919) 572-5599</div>
-      <a href="https://maps.google.com/?q=1708+E+NC+Highway+54+Durham+NC+27713" target="_blank" rel="noopener noreferrer" class="loc-link">Get Directions →</a>
+  <!-- FASTING ITEMS -->
+  <div class="cat-section" data-cat="fasting">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🙏</span><span class="section-title">Fasting Items</span><span class="section-count">13 items</span></div>
     </div>
-    <div class="loc-card" data-city="Raleigh" style="background:#2a2220">
-      <div class="loc-number">02</div>
-      <div class="loc-city">Raleigh</div>
-      <div class="loc-detail"><strong>Address</strong><br>6715 Hillsborough St.<br>Raleigh, NC 27606</div>
-      <div class="loc-detail" style="margin-top:16px"><strong>Hours</strong><br>Open 7 Days a Week<br>10:00 AM – 10:00 PM</div>
-      <div class="loc-detail" style="margin-top:16px"><strong>Phone</strong><br>(919) 859-5403</div>
-      <div class="loc-detail" style="margin-top:8px; font-size:0.75rem; color:var(--turmeric)">🍽 Sukhadia's Indian Grill next door!</div>
-      <a href="https://maps.google.com/?q=6715+Hillsborough+St+Raleigh+NC+27606" target="_blank" rel="noopener noreferrer" class="loc-link">Get Directions →</a>
-    </div>
-    <div class="loc-card" data-city="Charlotte" style="background:#252222">
-      <div class="loc-number">03</div>
-      <div class="loc-city">Charlotte</div>
-      <div class="loc-detail"><strong>Address</strong><br>6514 N. Tryon Street<br>Charlotte, NC 28213</div>
-      <div class="loc-detail" style="margin-top:16px"><strong>Hours</strong><br>Mon–Fri: 11:00 AM – 10:00 PM<br>Sat–Sun: 10:00 AM – 10:00 PM</div>
-      <div class="loc-detail" style="margin-top:16px"><strong>Phone</strong><br>(704) 494-0044</div>
-      <a href="https://maps.google.com/?q=6514+N+Tryon+Street+Charlotte+NC+28213" target="_blank" rel="noopener noreferrer" class="loc-link">Get Directions →</a>
+    <div class="product-grid">
+      <a class="product-card" href="#"><span class="product-name">Bansi Peanut Chikki 3.5oz</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Bansi Plantain Chips 12oz</span><div class="product-footer"><span class="product-price">$3.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Bansi Rajgira Chikki 3.5oz</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Bansi Rajgira Ladoo 7oz</span><div class="product-footer"><span class="product-price">$1.19</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Bansi Sesame Chikki 3.5oz</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Spicy Cashews Black Pepper 8oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Spicy Cashews Red Pepper 8oz</span><div class="product-footer"><span class="product-price">$5.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Spicy Peanut 8oz</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Sabudana Papad Color 7oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Sabudana Papad Plain 7oz</span><div class="product-footer"><span class="product-price">$2.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Shalini Banana Wafer 5.6oz</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Shalini Banana Wafer Mari 5.6oz</span><div class="product-footer"><span class="product-price">$0.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Varalakshni Sabudana Papad 480gm</span><div class="product-footer"><span class="product-price">$2.99</span></div></a>
     </div>
   </div>
-</section>
 
-<!-- SHIPPING CTA -->
-<div class="shipping fade-in">
-  <div class="shipping-text">
-    <div class="section-tag">Shop From Home</div>
-    <h2 class="section-title">We Ship<br>Anywhere in the US</h2>
-    <p class="section-desc">Can't make it to one of our stores? We ship groceries via UPS to anywhere in the country. Email us to place your order and we'll take care of the rest.</p>
-    <a href="mailto:aroundtheworldmarket@gmail.com" class="shipping-cta">Email to Order</a>
+  <!-- FLOUR & ATTA -->
+  <div class="cat-section" data-cat="flour">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🌾</span><span class="section-title">Flour & Atta</span><span class="section-count">13 items</span></div>
+    </div>
+    <div class="product-grid">
+      <a class="product-card" href="#"><span class="product-name">24mantra Organic Whole Wheat Atta 10lb</span><div class="product-footer"><span class="product-price">$11.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Aashirvaad Atta 10lb</span><div class="product-footer"><span class="product-price">$7.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Aashirvaad Multigrain Atta 10lb</span><div class="product-footer"><span class="product-price">$10.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Aashirvaad Select Atta 10lb</span><div class="product-footer"><span class="product-price">$7.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Deep Chapati Atta Flour 10lb</span><div class="product-footer"><span class="product-price">$6.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Laxmi Besan 10lb</span><div class="product-footer"><span class="product-price">$14.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Sujata Atta 10lb</span><div class="product-footer"><span class="product-price">$8.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Sujata Gold Atta 10lb</span><div class="product-footer"><span class="product-price">$9.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Sujata Multi Grains Atta 10lb</span><div class="product-footer"><span class="product-price">$10.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Besan India 8lb</span><div class="product-footer"><span class="product-price">$9.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Gluten Free Chappati Atta 10lb</span><div class="product-footer"><span class="product-price">$9.99</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swad Multi Grain Atta 10lb</span><div class="product-footer"><span class="product-price">$7.49</span></div></a>
+      <a class="product-card" href="#"><span class="product-name">Swarna Atta 10lb</span><div class="product-footer"><span class="product-price">$6.99</span></div></a>
+    </div>
   </div>
-  <div class="shipping-visual">
-    <ul class="shipping-list">
-      <li>All major Indian grocery staples available</li>
-      <li>Spices, lentils, rice &amp; flours</li>
-      <li>Snacks, sweets &amp; packaged goods</li>
-      <li>UPS shipping to all 50 states</li>
-      <li>Free loyalty rewards program</li>
-      <li>Family-owned, personal service</li>
-    </ul>
+
+  <!-- FROZEN APPETIZERS -->
+  <div class="cat-section" data-cat="frozen">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🥟</span><span class="section-title">Frozen Appetizers & Chutney</span><span class="section-count">Coming soon</span></div>
+    </div>
+    <div class="empty-cat">
+      <p>This category is being stocked — check back soon or visit any of our NC locations for current selection.</p>
+    </div>
   </div>
+
+  <!-- FROZEN ICE CREAM & SWEETS -->
+  <div class="cat-section" data-cat="frozen">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🍨</span><span class="section-title">Frozen Ice Cream & Sweets</span><span class="section-count">Coming soon</span></div>
+    </div>
+    <div class="empty-cat">
+      <p>Kulfi, frozen mithai and ice cream are available in-store — online listings coming soon.</p>
+    </div>
+  </div>
+
+  <!-- FROZEN NAAN & PARATHA -->
+  <div class="cat-section" data-cat="frozen">
+    <div class="section-header">
+      <div class="section-title-wrap"><span class="section-emoji">🫓</span><span class="section-title">Frozen Naan & Paratha</span><span class="section-count">Coming soon</span></div>
+    </div>
+    <div class="empty-cat">
+      <p>Plain, garlic, and stuffed frozen breads are available in-store — online listings coming soon.</p>
+    </div>
+  </div>
+
+  <div id="emptySearch">
+    <div class="big">🔍</div>
+    <h3>No products found</h3>
+    <p>Try a different search term or browse all categories.</p>
+    <button class="reset-btn" onclick="resetAll()">Show Everything</button>
+  </div>
+
+</main>
+
+<div class="shipping-banner">
+  <div>
+    <h3>Order From Anywhere</h3>
+    <p>We ship groceries by UPS to all 50 states. Email us to place your order and we'll pack and ship it right to your door.</p>
+  </div>
+  <a href="/cdn-cgi/l/email-protection#4223302d372c26362a27352d302e262f233029273602252f232b2e6c212d2f" class="ship-btn">Email to Order</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">Around <span>the</span> World Market</div>
-      <p class="footer-tagline">The largest Indian grocery store in the tri-state area, with something for every culture, every kitchen, every palate.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Shop</h5>
-      <ul>
-        <li><a href="catalog.html">Spices</a></li>
-        <li><a href="catalog.html">Rice</a></li>
-        <li><a href="catalog.html">Lentils &amp; Grains</a></li>
-        <li><a href="catalog.html">Sweets</a></li>
-        <li><a href="catalog.html">Snacks</a></li>
-        <li><a href="catalog.html">Full Catalog →</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Locations</h5>
-      <ul>
-        <li><a href="#locations">Durham</a></li>
-        <li><a href="#locations">Raleigh</a></li>
-        <li><a href="#locations">Charlotte</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <ul>
-        <li><a href="mailto:aroundtheworldmarket@gmail.com">Email Us</a></li>
-        <li><a href="#locations">Visit a Location</a></li>
-        <li><a href="#reviews">Leave a Review</a></li>
-        <li><a href="#gallery">Photo Gallery</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Around The World Market. All Rights Reserved.</span>
-    <span>Durham · Raleigh · Charlotte, North Carolina</span>
+  <div class="footer-logo">Around <span>the</span> World Market</div>
+  <div>Durham · Raleigh · Charlotte, NC</div>
+  <div>
+    <a href="index.html">← Main Site</a> &nbsp;·&nbsp;
+    <a href="/cdn-cgi/l/email-protection#18796a776d767c6c707d6f776a747c75796a737d6c587f75797174367b7775">Contact</a>
   </div>
 </footer>
 
-<script>
-  // Nav scroll shadow
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  let activeTab = 'all';
 
-  // Hamburger / mobile drawer
-  const hamburger = document.getElementById('hamburger');
-  const drawer = document.getElementById('mobileDrawer');
-  const backdrop = document.getElementById('drawerBackdrop');
-  const drawerClose = document.getElementById('drawerClose');
-  const drawerLinks = document.querySelectorAll('.drawer-link');
-
-  function openDrawer() {
-    drawer.classList.add('open');
-    hamburger.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+  function setTab(tab, el) {
+    activeTab = tab;
+    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    applyFilters('');
   }
 
-  hamburger.addEventListener('click', () => {
-    drawer.classList.contains('open') ? closeDrawer() : openDrawer();
-  });
-  drawerClose.addEventListener('click', closeDrawer);
-  backdrop.addEventListener('click', closeDrawer);
-  drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+  function handleSearch(val) {
+    activeTab = 'all';
+    document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', i===0));
+    applyFilters(val.trim().toLowerCase());
+  }
 
-  // Fade-in on scroll
-  const faders = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+  function applyFilters(search) {
+    const sections = document.querySelectorAll('.cat-section');
+    let totalProducts = 0;
+
+    sections.forEach(sec => {
+      const cat = sec.dataset.cat;
+      if (activeTab !== 'all' && cat !== activeTab) { sec.classList.add('hidden'); return; }
+      sec.classList.remove('hidden');
+
+      const cards = sec.querySelectorAll('.product-card');
+      let visible = 0;
+      cards.forEach(c => {
+        const name = c.querySelector('.product-name').textContent.toLowerCase();
+        const show = !search || name.includes(search);
+        c.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      const empty = sec.querySelector('.empty-cat');
+      if (empty) { empty.style.display = search ? 'none' : ''; if (!search) visible++; }
+
+      if (search && visible === 0) sec.classList.add('hidden');
+      else totalProducts += visible;
     });
-  }, { threshold: 0.1 });
-  faders.forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+
+    const countEl = document.getElementById('resultCount');
+    countEl.textContent = search ? totalProducts + ' result' + (totalProducts !== 1 ? 's' : '') : '';
+    document.getElementById('emptySearch').style.display = (search && totalProducts === 0) ? 'block' : 'none';
+  }
+
+  function resetAll() {
+    acti
