@@ -21,6 +21,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
 
   /* ── NAV ── */
   nav {
@@ -754,11 +755,11 @@
   <div class="hero-right">
     <div class="hero-img-grid">
       <div class="hero-img-top">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=900&q=85" alt="Colorful Indian spices in wooden bowls" loading="lazy">
+        <img src="assets/images/hero-spices.svg" alt="Colorful Indian spices in wooden bowls" loading="lazy">
         <div class="hero-badge">🌶 Fresh Spices Daily</div>
       </div>
       <div class="hero-img-bottom">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&q=85" alt="Fresh produce and vegetables at market" loading="lazy">
+        <img src="assets/images/hero-produce.svg" alt="Fresh produce and vegetables at market" loading="lazy">
       </div>
     </div>
   </div>
@@ -798,10 +799,10 @@
 <section class="about fade-in" id="about">
   <div class="about-images">
     <div class="about-img-main">
-      <img src="https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?w=800&q=85" alt="Indian grocery store interior with colorful products" loading="lazy">
+      <img src="assets/images/about-store.svg" alt="Indian grocery store interior with colorful products" loading="lazy">
     </div>
     <div class="about-img-accent">
-      <img src="https://images.unsplash.com/photo-1573246123775-46f5e06b6082?w=600&q=85" alt="Fresh ginger root and turmeric" loading="lazy">
+      <img src="assets/images/about-ginger.svg" alt="Fresh ginger root and turmeric" loading="lazy">
     </div>
   </div>
   <div class="about-content">
@@ -846,7 +847,7 @@
   <div class="categories-grid">
     <div class="cat-card tall">
       <!-- Indian spices in bowls – saffron, turmeric, chili powder -->
-      <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80" alt="Spices and Masalas" loading="lazy">
+      <img src="assets/images/cat-spices.svg" alt="Spices and Masalas" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Spices & Masalas</div>
         <div class="cat-count">Whole, ground & blended</div>
@@ -854,7 +855,7 @@
     </div>
     <div class="cat-card">
       <!-- Fresh vegetables at a market – peppers, tomatoes, produce -->
-      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=500&q=80" alt="Fresh produce" loading="lazy">
+      <img src="assets/images/cat-produce.svg" alt="Fresh produce" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Fresh Produce</div>
         <div class="cat-count">Seasonal & specialty</div>
@@ -862,7 +863,7 @@
     </div>
     <div class="cat-card">
       <!-- Dried lentils and grains in wooden spoons -->
-      <img src="https://images.unsplash.com/photo-1612257416648-af6e8c24b3ef?w=500&q=80" alt="Rice lentils and grains" loading="lazy">
+      <img src="assets/images/cat-grains.svg" alt="Rice lentils and grains" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Rice, Lentils & Grains</div>
         <div class="cat-count">Basmati, dal & more</div>
@@ -870,7 +871,7 @@
     </div>
     <div class="cat-card large">
       <!-- Indian sweets / mithai – gulab jamun, ladoo -->
-      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&q=80" alt="Indian sweets and snacks" loading="lazy">
+      <img src="assets/images/cat-sweets.svg" alt="Indian sweets and snacks" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Snacks, Sweets & Mithai</div>
         <div class="cat-count">Namkeen, biscuits, Indian desserts</div>
@@ -878,7 +879,7 @@
     </div>
     <div class="cat-card">
       <!-- Frozen food aisle / frozen packaged goods -->
-      <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=500&q=80" alt="Frozen foods" loading="lazy">
+      <img src="assets/images/cat-frozen.svg" alt="Frozen foods" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Frozen Foods</div>
         <div class="cat-count">Naan, paratha, ready-to-eat</div>
@@ -886,7 +887,7 @@
     </div>
     <div class="cat-card">
       <!-- Masala chai / Indian tea cups with spices -->
-      <img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=500&q=80" alt="Drinks and teas" loading="lazy">
+      <img src="assets/images/cat-drinks.svg" alt="Drinks and teas" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Drinks & Teas</div>
         <div class="cat-count">Masala chai, juices, mixes</div>
@@ -894,7 +895,7 @@
     </div>
     <div class="cat-card">
       <!-- Glass jar of ghee / clarified butter golden yellow -->
-      <img src="https://images.unsplash.com/photo-1593560706329-3e327cd97af9?w=500&q=80" alt="Ghee and oils" loading="lazy">
+      <img src="assets/images/cat-oils.svg" alt="Ghee and oils" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Ghee & Oils</div>
         <div class="cat-count">Pure, organic & specialty</div>
@@ -902,7 +903,7 @@
     </div>
     <div class="cat-card">
       <!-- Mixed dry fruits – cashews almonds raisins dates -->
-      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500&q=80" alt="Dry fruits and nuts" loading="lazy">
+      <img src="assets/images/cat-dryfruits.svg" alt="Dry fruits and nuts" loading="lazy">
       <div class="cat-card-content">
         <div class="cat-name">Dry Fruits & Nuts</div>
         <div class="cat-count">Cashews, almonds & more</div>
@@ -948,19 +949,19 @@
   <h2 class="section-title" style="color:#fff">Inside the Market</h2>
   <div class="gallery-grid">
     <div class="g-item g1">
-      <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=700&q=80" alt="Indian grocery store aisle" loading="lazy">
+      <img src="assets/images/gallery-aisle.svg" alt="Indian grocery store aisle" loading="lazy">
     </div>
     <div class="g-item g2">
-      <img src="https://images.unsplash.com/photo-1532336414038-cf19279ed851?w=600&q=80" alt="Colorful spice market display" loading="lazy">
+      <img src="assets/images/gallery-spices.svg" alt="Colorful spice market display" loading="lazy">
     </div>
     <div class="g-item g3">
-      <img src="https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=600&q=80" alt="Market shelves with Indian products" loading="lazy">
+      <img src="assets/images/gallery-shelves.svg" alt="Market shelves with Indian products" loading="lazy">
     </div>
     <div class="g-item g4">
-      <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=600&q=80" alt="Fresh herbs and vegetables" loading="lazy">
+      <img src="assets/images/gallery-herbs.svg" alt="Fresh herbs and vegetables" loading="lazy">
     </div>
     <div class="g-item g5">
-      <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=700&q=80" alt="Store interior warm lighting" loading="lazy">
+      <img src="assets/images/gallery-lighting.svg" alt="Store interior warm lighting" loading="lazy">
     </div>
   </div>
   <div style="text-align:center; margin-top:32px">
@@ -1163,6 +1164,7 @@
     });
   }, { threshold: 0.1 });
   faders.forEach(el => observer.observe(el));
+
 </script>
 </body>
 </html>
